@@ -137,7 +137,7 @@ var contactno = document.getElementById('contactno').value;
 var email= document.getElementById('email').value;
 var password = document.getElementById('password').value;
 var confirm_password = document.getElementById('confirm_password').value;  
-var mailformat =  /^([a-zA-Z0-9\.-]{4,10})([@][a-zA-Z-]{3,10})([\.][a-z]{2,10})$/; 
+var mailformat = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,5})(\.[a-zA-Z]{2,5})?$/;; 
 if(fname==""){
 $("#myModal").modal('show');
 document.getElementById('message').innerHTML = "please enter your full name";
