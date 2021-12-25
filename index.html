@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form</title>
+        <link rel="stylesheet" href="formcss.css">
+        <script src="javascript.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+      <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <div class="modal-header">
+                  
+                  
+                 
+                </div>
+                <div class="modal-body">
+            
+                       All fields are mandatory
+                       <br>
+                       <br>
+                       <button type="button" class="btn btn-primary"  data-dismiss="modal" style="background-color:rgb(139, 27, 231);color:white" >OK</button>
+                        <div class="form-group">
+                        
+                        </div>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="passModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            
+              <div class="modal-header">
+                
+                
+               
+              </div>
+              <div class="modal-body">
+          
+                      Password should be atleast 8 chracters long
+                     <br>
+                       <br>
+                     <button type="button" class="btn btn-primary"  data-dismiss="modal" style="background-color:rgb(139, 27, 231);color:white" >OK</button>
+                      <div class="form-group">
+                      
+                      </div>
+                    
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+      
+        <form name="form" id="form" >
+            <h1>Sign Up</h1>
+
+            <fieldset>
+
+              
+
+
+           <label class="" for= "fullname">Full name:</label>
+           <input type="text" name="fullname" id="fullname">
+           <p id="message"><br></p>
+
+           <label class="" for= "username">Username:</label>
+           <input type="text" name="username" id="username" >
+           <p id="message1"><br></p>
+           <label class="" for= "contactno">Contactno:</label>
+            <input type="number" name="contactno"  id="contactno">
+            <p id="message2"><br></p>
+            <label class="" for= "email">Email:</label>
+            <input type="email" name="email" id="email">
+            <p id="message3"><br></p>
+            <label class="" for= "password">Password:</label>
+            <input type="password" name="password" id="password">
+            <p id="message4"><br></p>
+            <small> Note: password should be atleast 8 characters long</small><br><br>
+
+
+           <label class="" for= "confirm">Confirm password:</label>
+           <input type="password" name="Confirm Password" id="confirm_password">
+           <p id="message5"><br></p>
+
+           </fieldset>
+          
+
+           <button id="submit">Sign up</button>
+
+           
+
+
+
+
+
+
+
+        </form>
+        
+       
+         <script>
+        $(document).ready(function(){
+		$("#myModal").modal('hide');
+    var opacity=0;
+    var IntervalId = 0;
+   IntervalId =setInterval(trans,80);
+  
+  function trans(){
+    var frm=document.getElementById("form");
+    opacity = Number(window.getComputedStyle(frm).getPropertyValue('opacity'));
+ if(opacity<1){
+   opacity=opacity+0.1;
+   frm.style.opacity = opacity;
+  }
+  else{
+    clearInterval(IntervalId);
+  }
+}
+	});
+          </script>
+          <script>
+            $('#submit').on('click',function(e){
+             e.preventDefault(); 
+var fname = document.getElementById('fullname').value;
+var username = document.getElementById('username').value;
+var contactno = document.getElementById('contactno').value;
+var email= document.getElementById('email').value;
+var password = document.getElementById('password').value;
+var confirm_password = document.getElementById('confirm_password').value;  
+var atposition=email.indexOf("@");  
+var dotposition=email.lastIndexOf(".");  
+if(fname==""){
+  $("#myModal").modal('show');
+document.getElementById('message').innerHTML = "please enter your full name";
+            }
+            else{
+              document.getElementById('message').innerHTML = "";
+            }
+             if(username==""){
+              $("#myModal").modal('show');
+              document.getElementById('message1').innerHTML = "Enter a valid username";
+            }
+            else{
+              document.getElementById('message1').innerHTML = "";
+            }
+             if(contactno=="" || contactno.length<10 || contactno.length>10 ){
+              $("#myModal").modal('show');
+              document.getElementById('message2').innerHTML = "Enter your contact no";
+            }
+            else{
+              document.getElementById('message2').innerHTML = "";
+            }
+             if(email=="" || (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)){
+              $("#myModal").modal('show');
+              document.getElementById('message3').innerHTML = "Enter a valid email";
+            }
+            else{
+              document.getElementById('message3').innerHTML = "";
+            }
+             if(password=="" ||(password.length<=7)){
+        
+              $("#passModal").modal('show');
+              document.getElementById('message4').innerHTML = "Enter a valid password";
+            }
+            else{
+              document.getElementById('message4').innerHTML = "";
+            }
+            if(confirm_password!==password){
+              
+              document.getElementById('message5').innerHTML = "passwords dont match";
+            }
+            else{
+              document.getElementById('message5').innerHTML = "";
+            }
+            });
+          </script>
+          
+    </body>
+</html>
