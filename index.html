@@ -137,8 +137,7 @@ var contactno = document.getElementById('contactno').value;
 var email= document.getElementById('email').value;
 var password = document.getElementById('password').value;
 var confirm_password = document.getElementById('confirm_password').value;  
-var atposition=email.indexOf("@");  
-var dotposition=email.lastIndexOf(".");  
+var mailformat =  /^([a-zA-Z0-9\.-]{4,10})([@][a-zA-Z-]{3,10})([\.][a-z]{2,10})$/; 
 if(fname==""){
   $("#myModal").modal('show');
 document.getElementById('message').innerHTML = "please enter your full name";
@@ -160,12 +159,13 @@ document.getElementById('message').innerHTML = "please enter your full name";
             else{
               document.getElementById('message2').innerHTML = "";
             }
-             if(email=="" ){
-              $("#myModal").modal('show');
-              document.getElementById('message3').innerHTML = "Enter a valid email";
+             if(email!=="" && (email.match(mailformat))){
+              document.getElementById('message3').innerHTML = "";
             }
             else{
-              document.getElementById('message3').innerHTML = "";
+              $("#myModal").modal('show');
+              document.getElementById('message3').innerHTML = "Enter a valid email";
+             
             }
              if(password=="" ||(password.length<=7)){
         
