@@ -160,7 +160,7 @@ document.getElementById('message').innerHTML = "please enter your full name";
             else{
               document.getElementById('message2').innerHTML = "";
             }
-             if(email=="" || (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)){
+             if(email=="" ){
               $("#myModal").modal('show');
               document.getElementById('message3').innerHTML = "Enter a valid email";
             }
