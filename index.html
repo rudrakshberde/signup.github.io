@@ -3,7 +3,7 @@
     <head>
         <title>form</title>
         <link rel="stylesheet" href="formcss.css">
-        <script src="javascript.js"></script>
+        
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,300" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -109,7 +109,7 @@
         
        
          <script>
-        $(document).ready(function(){
+        $(document).ready(function(e){
 		$("#myModal").modal('hide');
     var opacity=0;
     var IntervalId = 0;
@@ -130,7 +130,7 @@
           </script>
           <script>
             $('#submit').on('click',function(e){
-             e.preventDefault(); 
+    e.preventDefault(); 
 var fname = document.getElementById('fullname').value;
 var username = document.getElementById('username').value;
 var contactno = document.getElementById('contactno').value;
@@ -139,50 +139,50 @@ var password = document.getElementById('password').value;
 var confirm_password = document.getElementById('confirm_password').value;  
 var mailformat =  /^([a-zA-Z0-9\.-]{4,10})([@][a-zA-Z-]{3,10})([\.][a-z]{2,10})$/; 
 if(fname==""){
-  $("#myModal").modal('show');
+$("#myModal").modal('show');
 document.getElementById('message').innerHTML = "please enter your full name";
-            }
-            else{
-              document.getElementById('message').innerHTML = "";
-            }
-             if(username==""){
-              $("#myModal").modal('show');
-              document.getElementById('message1').innerHTML = "Enter a valid username";
-            }
-            else{
-              document.getElementById('message1').innerHTML = "";
-            }
-             if(contactno=="" || contactno.length<10 || contactno.length>10 ){
-              $("#myModal").modal('show');
-              document.getElementById('message2').innerHTML = "Enter your contact no";
-            }
-            else{
-              document.getElementById('message2').innerHTML = "";
-            }
-             if(email!=="" && (email.match(mailformat))){
-              document.getElementById('message3').innerHTML = "";
-            }
-            else{
-              $("#myModal").modal('show');
-              document.getElementById('message3').innerHTML = "Enter a valid email";
-             
-            }
-             if(password=="" ||(password.length<=7)){
-        
-              $("#passModal").modal('show');
-              document.getElementById('message4').innerHTML = "Enter a valid password";
-            }
-            else{
-              document.getElementById('message4').innerHTML = "";
-            }
-            if(confirm_password!==password){
-              
-              document.getElementById('message5').innerHTML = "passwords dont match";
-            }
-            else{
-              document.getElementById('message5').innerHTML = "";
-            }
-            });
+   }
+   else{
+     document.getElementById('message').innerHTML = "";
+   }
+    if(username==""){
+     $("#myModal").modal('show');
+     document.getElementById('message1').innerHTML = "Enter a valid username";
+   }
+   else{
+     document.getElementById('message1').innerHTML = "";
+   }
+    if(contactno=="" || contactno.length<10 || contactno.length>10 ){
+     $("#myModal").modal('show');
+     document.getElementById('message2').innerHTML = "Enter your contact no";
+   }
+   else{
+     document.getElementById('message2').innerHTML = "";
+   }
+    if(email!=="" && (email.match(mailformat))){
+     document.getElementById('message3').innerHTML = "";
+   }
+   else{
+     $("#myModal").modal('show');
+     document.getElementById('message3').innerHTML = "Enter a valid email";
+    
+   }
+    if(password=="" ||(password.length<=7)){
+
+     $("#passModal").modal('show');
+     document.getElementById('message4').innerHTML = "Enter a valid password";
+   }
+   else{
+     document.getElementById('message4').innerHTML = "";
+   }
+   if(confirm_password!==password){
+     
+     document.getElementById('message5').innerHTML = "passwords dont match";
+   }
+   else{
+     document.getElementById('message5').innerHTML = "";
+   }
+   });
           </script>
           
     </body>
